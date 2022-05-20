@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import practice.string.SequentialWordsNumbers;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -29,7 +30,7 @@ class SequentialWordsNumbersTests {
                 Arguments.of("два слова", "(1) два (2) слова"),
                 Arguments.of("Hello world!", "(1) Hello (2) world!"),
                 Arguments.of("Это просто текст, для примера работы программы",
-                        "(1) Это (2) просто (3) текст, (4) для (5) примера (5) работы (6) программы")
+                        "(1) Это (2) просто (3) текст, (4) для (5) примера (6) работы (7) программы")
         );
     }
 
@@ -37,8 +38,8 @@ class SequentialWordsNumbersTests {
     @ParameterizedTest
     @MethodSource("strings")
     @DisplayName("Порядковый номер слов в строке")
-    void sequentialWordsNumbersTest(String expected, String actual) {
-        assertEquals(expected, actual);
+    void sequentialWordsNumbersTest(String text, String expected) {
+        assertEquals(expected, SequentialWordsNumbers.sequentialWordsNumbers(text));
     }
 
     @Test
